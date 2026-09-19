@@ -1,0 +1,15 @@
+{
+  "runId": "efdad98c-aee2-40be-985c-d06eb2ff0aaa",
+  "evidence": "evidence/replay-recovery/efdad98c-aee2-40be-985c-d06eb2ff0aaa",
+  "recoveries": [
+    "SLOW_LOAD",
+    "KNOWN_WARNING"
+  ],
+  "status": "success",
+  "outputs": {
+    "status": "READY_FOR_REVIEW",
+    "memberId": "[REDACTED]",
+    "nickname": "[REDACTED]",
+    "accountType": "SAVINGS"
+  }
+}

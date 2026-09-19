@@ -1,0 +1,14 @@
+{
+  "runId": "d96c5f3b-37d4-4125-a10f-3ebf6850d07d",
+  "evidence": "evidence/discovery/d96c5f3b-37d4-4125-a10f-3ebf6850d07d",
+  "recoveries": [
+    "SLOW_LOAD"
+  ],
+  "status": "success",
+  "outputs": {
+    "status": "READY_FOR_REVIEW",
+    "memberId": "[REDACTED]",
+    "nickname": "[REDACTED]",
+    "accountType": "SAVINGS"
+  }
+}

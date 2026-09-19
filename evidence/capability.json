@@ -1,0 +1,921 @@
+{
+  "schemaVersion": 1,
+  "id": "prepare-savings",
+  "capabilityVersion": "1.0.0",
+  "description": "Find a member and prepare a savings sub-account for human review. Does not create an account.",
+  "application": {
+    "family": "legacy-banking-demo",
+    "version": "1",
+    "entryRoute": "/search"
+  },
+  "inputs": {
+    "memberId": {
+      "type": "string",
+      "required": true,
+      "sensitive": true,
+      "minLength": 5,
+      "maxLength": 5,
+      "format": "memberId"
+    },
+    "nickname": {
+      "type": "string",
+      "required": true,
+      "sensitive": true,
+      "minLength": 1,
+      "maxLength": 30,
+      "format": "trimmed"
+    }
+  },
+  "outputs": {
+    "status": {
+      "type": "string",
+      "required": true,
+      "sensitive": false,
+      "literal": "READY_FOR_REVIEW"
+    },
+    "memberId": {
+      "type": "string",
+      "required": true,
+      "sensitive": true,
+      "format": "memberId"
+    },
+    "nickname": {
+      "type": "string",
+      "required": true,
+      "sensitive": true,
+      "maxLength": 30,
+      "format": "trimmed"
+    },
+    "accountType": {
+      "type": "string",
+      "required": true,
+      "sensitive": false,
+      "literal": "SAVINGS"
+    }
+  },
+  "precondition": {
+    "all": [
+      {
+        "kind": "route",
+        "path": "/search"
+      },
+      {
+        "kind": "text",
+        "text": {
+          "literal": "Member Search"
+        }
+      },
+      {
+        "kind": "text",
+        "text": {
+          "literal": "Ledger Office / Demo v1"
+        }
+      }
+    ]
+  },
+  "steps": [
+    {
+      "id": "step-1",
+      "action": {
+        "type": "type",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Member number"
+              },
+              "control": "input"
+            }
+          ],
+          "discovery": {
+            "x": 320.9296875,
+            "y": 239.578125,
+            "width": 1100,
+            "height": 760
+          }
+        },
+        "value": {
+          "input": "memberId"
+        }
+      },
+      "effect": "reversible",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/search"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Member Search"
+            }
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Ledger Office / Demo v1"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/search"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Member Search"
+            }
+          },
+          {
+            "kind": "equals",
+            "target": {
+              "strategies": [
+                {
+                  "by": "tableRow",
+                  "caption": {
+                    "literal": "Member number"
+                  },
+                  "control": "input"
+                }
+              ],
+              "discovery": {
+                "x": 320.9296875,
+                "y": 239.578125,
+                "width": 1100,
+                "height": 760
+              }
+            },
+            "read": "value",
+            "value": {
+              "input": "memberId"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-2",
+      "action": {
+        "type": "click",
+        "target": {
+          "strategies": [
+            {
+              "by": "role",
+              "role": "button",
+              "name": {
+                "literal": "Search"
+              }
+            }
+          ],
+          "discovery": {
+            "x": 74.34765625,
+            "y": 307.078125,
+            "width": 1100,
+            "height": 760
+          }
+        }
+      },
+      "effect": "reversible",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/search"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Member Search"
+            }
+          },
+          {
+            "kind": "equals",
+            "target": {
+              "strategies": [
+                {
+                  "by": "tableRow",
+                  "caption": {
+                    "literal": "Member number"
+                  },
+                  "control": "input"
+                }
+              ],
+              "discovery": {
+                "x": 320.9296875,
+                "y": 239.578125,
+                "width": 1100,
+                "height": 760
+              }
+            },
+            "read": "value",
+            "value": {
+              "input": "memberId"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/results"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "View member"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-3",
+      "action": {
+        "type": "click",
+        "target": {
+          "strategies": [
+            {
+              "by": "role",
+              "role": "button",
+              "name": {
+                "literal": "View member"
+              }
+            },
+            {
+              "by": "tableRow",
+              "caption": {
+                "input": "memberId"
+              },
+              "control": "button"
+            }
+          ],
+          "discovery": {
+            "x": 332.0546875,
+            "y": 285.078125,
+            "width": 1100,
+            "height": 760
+          }
+        }
+      },
+      "effect": "reversible",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/results"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "View member"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/details"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Member Details"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-4",
+      "action": {
+        "type": "click",
+        "target": {
+          "strategies": [
+            {
+              "by": "role",
+              "role": "button",
+              "name": {
+                "literal": "Open Savings Sub-Account"
+              }
+            }
+          ],
+          "discovery": {
+            "x": 147.28125,
+            "y": 330.578125,
+            "width": 1100,
+            "height": 760
+          }
+        }
+      },
+      "effect": "reversible",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/details"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Member Details"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/savings"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Open Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-5",
+      "action": {
+        "type": "type",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Nickname"
+              },
+              "control": "input"
+            }
+          ],
+          "discovery": {
+            "x": 320.9296875,
+            "y": 318.578125,
+            "width": 1100,
+            "height": 760
+          }
+        },
+        "value": {
+          "input": "nickname"
+        }
+      },
+      "effect": "reversible",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/savings"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Open Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/savings"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Open Savings Sub-Account"
+            }
+          },
+          {
+            "kind": "equals",
+            "target": {
+              "strategies": [
+                {
+                  "by": "tableRow",
+                  "caption": {
+                    "literal": "Nickname"
+                  },
+                  "control": "input"
+                }
+              ],
+              "discovery": {
+                "x": 320.9296875,
+                "y": 318.578125,
+                "width": 1100,
+                "height": 760
+              }
+            },
+            "read": "value",
+            "value": {
+              "input": "nickname"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-6",
+      "action": {
+        "type": "click",
+        "target": {
+          "strategies": [
+            {
+              "by": "role",
+              "role": "button",
+              "name": {
+                "literal": "Review"
+              }
+            }
+          ],
+          "discovery": {
+            "x": 75.23046875,
+            "y": 386.078125,
+            "width": 1100,
+            "height": 760
+          }
+        }
+      },
+      "effect": "reversible",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/savings"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Open Savings Sub-Account"
+            }
+          },
+          {
+            "kind": "equals",
+            "target": {
+              "strategies": [
+                {
+                  "by": "tableRow",
+                  "caption": {
+                    "literal": "Nickname"
+                  },
+                  "control": "input"
+                }
+              ],
+              "discovery": {
+                "x": 320.9296875,
+                "y": 318.578125,
+                "width": 1100,
+                "height": 760
+              }
+            },
+            "read": "value",
+            "value": {
+              "input": "nickname"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-7",
+      "action": {
+        "type": "extract",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Status"
+              },
+              "control": "value"
+            }
+          ],
+          "discovery": {
+            "x": 353.265625,
+            "y": 350.078125,
+            "width": 1100,
+            "height": 760
+          }
+        },
+        "read": "text",
+        "output": "status"
+      },
+      "effect": "read",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-8",
+      "action": {
+        "type": "extract",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Member number"
+              },
+              "control": "value"
+            }
+          ],
+          "discovery": {
+            "x": 353.265625,
+            "y": 231.578125,
+            "width": 1100,
+            "height": 760
+          }
+        },
+        "read": "text",
+        "output": "memberId"
+      },
+      "effect": "read",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-9",
+      "action": {
+        "type": "extract",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Nickname"
+              },
+              "control": "value"
+            }
+          ],
+          "discovery": {
+            "x": 353.265625,
+            "y": 271.078125,
+            "width": 1100,
+            "height": 760
+          }
+        },
+        "read": "text",
+        "output": "nickname"
+      },
+      "effect": "read",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "id": "step-10",
+      "action": {
+        "type": "extract",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Account type"
+              },
+              "control": "value"
+            }
+          ],
+          "discovery": {
+            "x": 353.265625,
+            "y": 310.578125,
+            "width": 1100,
+            "height": 760
+          }
+        },
+        "read": "text",
+        "output": "accountType"
+      },
+      "effect": "read",
+      "before": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "checkpoint": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/review"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Review Savings Sub-Account"
+            }
+          }
+        ]
+      },
+      "timeoutMs": 5000
+    }
+  ],
+  "successCondition": {
+    "all": [
+      {
+        "kind": "route",
+        "path": "/review"
+      },
+      {
+        "kind": "text",
+        "text": {
+          "literal": "Review Savings Sub-Account"
+        }
+      },
+      {
+        "kind": "text",
+        "text": {
+          "literal": "No account has been created."
+        }
+      },
+      {
+        "kind": "equals",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Member number"
+              },
+              "control": "value"
+            }
+          ]
+        },
+        "read": "text",
+        "value": {
+          "input": "memberId"
+        }
+      },
+      {
+        "kind": "equals",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Nickname"
+              },
+              "control": "value"
+            }
+          ]
+        },
+        "read": "text",
+        "value": {
+          "input": "nickname"
+        }
+      },
+      {
+        "kind": "equals",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Account type"
+              },
+              "control": "value"
+            }
+          ]
+        },
+        "read": "text",
+        "value": {
+          "literal": "SAVINGS"
+        }
+      },
+      {
+        "kind": "equals",
+        "target": {
+          "strategies": [
+            {
+              "by": "tableRow",
+              "caption": {
+                "literal": "Status"
+              },
+              "control": "value"
+            }
+          ]
+        },
+        "read": "text",
+        "value": {
+          "literal": "READY_FOR_REVIEW"
+        }
+      }
+    ]
+  },
+  "businessOutcomes": [
+    {
+      "code": "MEMBER_NOT_FOUND",
+      "when": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/results"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "MEMBER_NOT_FOUND"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "PERMISSION_DENIED",
+      "when": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/savings"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "PERMISSION_DENIED"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "recoveries": [
+    {
+      "kind": "wait",
+      "code": "SLOW_LOAD",
+      "when": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/results"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Loading member records..."
+            }
+          }
+        ]
+      },
+      "maxMs": 4000
+    },
+    {
+      "kind": "dismiss",
+      "code": "KNOWN_WARNING",
+      "when": {
+        "all": [
+          {
+            "kind": "route",
+            "path": "/savings"
+          },
+          {
+            "kind": "text",
+            "text": {
+              "literal": "Notice: verify the member before continuing."
+            }
+          }
+        ]
+      },
+      "target": {
+        "strategies": [
+          {
+            "by": "role",
+            "role": "button",
+            "name": {
+              "literal": "Acknowledge"
+            }
+          }
+        ]
+      },
+      "maxAttempts": 1
+    }
+  ],
+  "safety": {
+    "finalCreation": "human-only",
+    "coordinateReplay": false
+  },
+  "provenance": {
+    "source": "live-discovery",
+    "runId": "d96c5f3b-37d4-4125-a10f-3ebf6850d07d",
+    "provider": "openai",
+    "model": "gpt-5.6-luna",
+    "createdAt": "2026-09-19T18:09:55.521Z"
+  }
+}

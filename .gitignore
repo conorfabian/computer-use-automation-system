@@ -1,0 +1,10 @@
+node_modules/
+.env*
+!.env.example
+.tmp/
+test-results/
+.DS_Store
+evidence/private/
+*.pem
+*.key
+.npmrc

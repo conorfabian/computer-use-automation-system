@@ -1,0 +1,90 @@
+{
+  "allowedOrigins": [
+    "http://127.0.0.1:3000"
+  ],
+  "allowedRoutes": [
+    "/search",
+    "/results",
+    "/details",
+    "/savings",
+    "/review",
+    "/locked"
+  ],
+  "allowedActions": [
+    "click",
+    "type",
+    "scroll",
+    "wait",
+    "extract",
+    "done",
+    "escalate"
+  ],
+  "controls": [
+    {
+      "route": "/search",
+      "action": "type",
+      "name": "Member number",
+      "tag": "input"
+    },
+    {
+      "route": "/search",
+      "action": "click",
+      "name": "Search",
+      "tag": "button"
+    },
+    {
+      "route": "/results",
+      "action": "click",
+      "name": "View member",
+      "tag": "button"
+    },
+    {
+      "route": "/details",
+      "action": "click",
+      "name": "Open Savings Sub-Account",
+      "tag": "button"
+    },
+    {
+      "route": "/savings",
+      "action": "click",
+      "name": "Acknowledge",
+      "tag": "button"
+    },
+    {
+      "route": "/savings",
+      "action": "type",
+      "name": "Nickname",
+      "tag": "input"
+    },
+    {
+      "route": "/savings",
+      "action": "click",
+      "name": "Review",
+      "tag": "button"
+    }
+  ],
+  "humanOnlyControls": [
+    "Create Account",
+    "Unlock session"
+  ],
+  "maxSteps": 25,
+  "deadlineMs": 180000,
+  "publicText": [
+    "Member number",
+    "Nickname",
+    "Account type",
+    "Status",
+    "Standing",
+    "Member Search",
+    "Member Details",
+    "Review Savings Sub-Account",
+    "No account has been created.",
+    "Ledger Office / Demo v1",
+    "SAVINGS",
+    "READY_FOR_REVIEW",
+    "MEMBER_NOT_FOUND",
+    "PERMISSION_DENIED",
+    "Loading member records...",
+    "Notice: verify the member before continuing."
+  ]
+}

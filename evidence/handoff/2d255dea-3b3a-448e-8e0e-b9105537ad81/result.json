@@ -1,0 +1,12 @@
+{
+  "runId": "2d255dea-3b3a-448e-8e0e-b9105537ad81",
+  "evidence": "evidence/handoff/2d255dea-3b3a-448e-8e0e-b9105537ad81",
+  "recoveries": [],
+  "status": "success",
+  "outputs": {
+    "status": "READY_FOR_REVIEW",
+    "memberId": "[REDACTED]",
+    "nickname": "[REDACTED]",
+    "accountType": "SAVINGS"
+  }
+}

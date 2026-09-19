@@ -1,0 +1,10 @@
+{
+  "runId": "cced1f1d-4e52-40a0-a5b4-ade30fce223d",
+  "evidence": "evidence/replay-error/cced1f1d-4e52-40a0-a5b4-ade30fce223d",
+  "recoveries": [
+    "SLOW_LOAD"
+  ],
+  "status": "business_outcome",
+  "code": "PERMISSION_DENIED",
+  "stepId": "step-4"
+}

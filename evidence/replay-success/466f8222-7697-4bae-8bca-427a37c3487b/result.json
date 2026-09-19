@@ -1,0 +1,12 @@
+{
+  "runId": "466f8222-7697-4bae-8bca-427a37c3487b",
+  "evidence": "evidence/replay-success/466f8222-7697-4bae-8bca-427a37c3487b",
+  "recoveries": [],
+  "status": "success",
+  "outputs": {
+    "status": "READY_FOR_REVIEW",
+    "memberId": "[REDACTED]",
+    "nickname": "[REDACTED]",
+    "accountType": "SAVINGS"
+  }
+}
