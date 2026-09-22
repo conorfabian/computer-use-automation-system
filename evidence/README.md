@@ -30,4 +30,4 @@ Each run contains structured events, a result, and masked screenshots. File refe
 | 3.6 Same-session human handoff | Trusted click, ownership transfers, terminal resume, and successful continuation above |
 | 3.7 Heterogeneity and scale | Surface interface and REPORT section 4; desktop/tenant services are not implemented |
 
-Source verification: typecheck and 25 tests passed. Ignored `.tmp/tests` fixtures and simulated operators are verification only, not submitted discovery or human evidence. Clean-checkout verification is pending the complete evidence set.
+Source verification: typecheck and 25 tests passed. Ignored `.tmp/tests` fixtures and simulated operators are verification only, not submitted discovery or human evidence. A fresh clone passed `npm ci`, Chromium installation, typecheck, and all 25 tests; its own demo server and the documented replay command succeeded with blank credentials and the committed capability. The manifest records the tested commit and commands.

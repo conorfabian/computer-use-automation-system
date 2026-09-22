@@ -94,5 +94,40 @@
     "terminalResume": "operator entered resume directly in terminal; confirmed by operator and saved resume events",
     "session": "same Playwright page/context retained by handoff implementation"
   },
-  "cleanCheckout": "pending"
+  "cleanCheckout": {
+    "status": "passed",
+    "testedCommit": "7133ae6a9d8fa7769a826f582d6806efd5fed11c",
+    "configuration": "Fresh local clone; npm ci; .env copied only from blank .env.example; no private source files copied",
+    "commands": [
+      {
+        "command": "npm ci",
+        "exitCode": 0
+      },
+      {
+        "command": "npx playwright install chromium",
+        "exitCode": 0
+      },
+      {
+        "command": "npm run typecheck",
+        "exitCode": 0
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0,
+        "passed": 25,
+        "failed": 0
+      },
+      {
+        "command": "npm run demo",
+        "result": "Started cloned server on http://127.0.0.1:3000/search"
+      },
+      {
+        "command": "env OPENAI_API_KEY= OPENAI_MODEL= npm run replay -- --memberId 67890 --nickname Emergency",
+        "exitCode": 0,
+        "result": "success",
+        "outputStatus": "READY_FOR_REVIEW"
+      }
+    ],
+    "discoverySyntax": "Documented goal/input command accepted; empty credentials correctly return PROVIDER_NOT_CONFIGURED. Genuine discovery is the primary run above."
+  }
 }
