@@ -1,9 +1,7 @@
 {
-  "runId": "d96c5f3b-37d4-4125-a10f-3ebf6850d07d",
-  "evidence": "evidence/discovery/d96c5f3b-37d4-4125-a10f-3ebf6850d07d",
-  "recoveries": [
-    "SLOW_LOAD"
-  ],
+  "runId": "4c8820c3-a4dc-49b6-b30d-cfdaf4e2ab99",
+  "evidence": "evidence/handoff/4c8820c3-a4dc-49b6-b30d-cfdaf4e2ab99",
+  "recoveries": [],
   "status": "success",
   "outputs": {
     "status": "READY_FOR_REVIEW",

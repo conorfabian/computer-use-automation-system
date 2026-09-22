@@ -1,9 +1,8 @@
 {
-  "runId": "efdad98c-aee2-40be-985c-d06eb2ff0aaa",
-  "evidence": "evidence/replay-recovery/efdad98c-aee2-40be-985c-d06eb2ff0aaa",
+  "runId": "0b2d6179-1f58-4e38-a656-50b7e8d6694d",
+  "evidence": "evidence/replay-recovery/0b2d6179-1f58-4e38-a656-50b7e8d6694d",
   "recoveries": [
-    "SLOW_LOAD",
-    "KNOWN_WARNING"
+    "SLOW_LOAD"
   ],
   "status": "success",
   "outputs": {

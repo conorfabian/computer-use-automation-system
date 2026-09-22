@@ -1,0 +1,8 @@
+{
+  "runId": "42f14b86-0841-47dd-80e2-2bc193124784",
+  "evidence": "evidence/replay-error/42f14b86-0841-47dd-80e2-2bc193124784",
+  "recoveries": [],
+  "status": "business_outcome",
+  "code": "PERMISSION_DENIED",
+  "stepId": "step-4"
+}

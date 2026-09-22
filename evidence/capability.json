@@ -913,9 +913,9 @@
   },
   "provenance": {
     "source": "live-discovery",
-    "runId": "d96c5f3b-37d4-4125-a10f-3ebf6850d07d",
+    "runId": "1b7d412c-23f9-40f2-9972-37c597e9ba1a",
     "provider": "openai",
     "model": "gpt-5.6-luna",
-    "createdAt": "2026-09-19T18:09:55.521Z"
+    "createdAt": "2026-09-22T17:50:23.692Z"
   }
 }

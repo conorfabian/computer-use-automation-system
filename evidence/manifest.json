@@ -1,0 +1,98 @@
+{
+  "sourceCommit": "b1b75b64e560de2d5efd0e649a598bc7ed89dc2e",
+  "sourceFilesSha256": {
+    ".env.example": "99295fd8dfd511f9eda797735f6c1e2f3bae13bfc5d79411f1a06da9d52afe2f",
+    ".gitignore": "bd22b2176e53e4633ad215ce8764fbb09b3fc8f133534069ba3c98d4de8b4cd9",
+    "README.md": "ef45693e79cf56001b92149553737c8d1043ecb216b1b5753b2fbd40b4aa0137",
+    "REPORT.md": "3886030a236cd516626f541ce4367eaf7a00bcaad06a831f3791e2f037d5cc7d",
+    "config/demo-policy.json": "045ebab79406843989dbd6753c3bdd9018c9ef10ac3ff666fb639726b784ddc6",
+    "demo/public/app.js": "38967252052d6f419da5beabe406f7fd3f0bb61457507a1572025204598fd026",
+    "demo/public/index.html": "d161155668adaf72f52e5b6d4cb6f9e8523c6c7fbfa7e232cbea0dbd918e7c59",
+    "demo/public/style.css": "00085d2b1c314335d8d2b334f031748aff97d6ecf78f442576262bf6fde3dccf",
+    "demo/server.ts": "aa7dbdddf625eb38217119024b18bd8ac3f68153dde875fec1b1cef1e7fcc37e",
+    "package-lock.json": "47125d005378f12214168955aa831423602f642cfc8e4d6d629b8cf25ec6e3c1",
+    "package.json": "78c2a34154173be5eb99be5c5b681fcd9952acc2ca42cebc346037cb1f0295a6",
+    "src/cli.ts": "2062e54b8bd51c01ac4571184213bef88e22a2f80dd4b325439f3ff677320565",
+    "src/conditions.ts": "806d70015a563af1ea3785275240f90c18790e6f20afa7ecd57e619b2f64ed5e",
+    "src/contract.ts": "7ef0274a2908126eafd0f8ecbc4d506e9e3c246b13be116682a8422157feca76",
+    "src/discovery.ts": "5f0c68be0e72ff23e595ba854aa57ac4b9d47fd5f09d8cdb2a80537e6339a051",
+    "src/evidence.ts": "62342581eabe23898ad7617d79f14daa6d493d938396c222aa560ced4c6ce3fa",
+    "src/handoff.ts": "dc2e7b5c7ed4ea0cff303c16c8aba35fe62b5e642cdb547562f1d56ee6ac57e1",
+    "src/llm/openai.ts": "fd71e23db69a92e0a5b7766c9aac500f12c18e4da19c4a39ce4d6b6c17300971",
+    "src/parameters.ts": "4fd6f74ef857b95f6985faf17b32bd34292709777e7ae1c548742e4a243081fe",
+    "src/playwright-surface.ts": "08ec5642d3b998c521022b066ec58cf99c589e547b1cea32ac22bca6e030d0b8",
+    "src/policy.ts": "5ee9f8c1126dacd84dd42238928b07e210bae33875261a7111af16983bb22787",
+    "src/recorder.ts": "2bfec37f44c2ed4913af581272b1699907fa1dfce8a91b0c23ad497362813605",
+    "src/replay.ts": "8395ccc2fc30892eac9851ccba91e6fd182f587e9195377a9de6c8ad22a014e0",
+    "src/schema.ts": "09ecbde78d4ad544d69d0a5c9fc31bfaababe69737f4d2bf0aed3a35b1efcd20",
+    "src/surface.ts": "89ba6de3ed5eb67d192de4dac48d2b61353a658ad92a53dfb98a14acb482bf75",
+    "tests/conditions.test.ts": "fdada2cfd5538f8d4081faac1715015f52fa8578e0a8119b64353fb709a8c0e7",
+    "tests/contracts.test.ts": "695b36a297310c601984eb400849b82ec809bd83303b58053a05005922efdbc2",
+    "tests/discovery.test.ts": "2d9dbf45644beb6f3aa8ab9fde9157bf99933f5779b0819b4bac321301a12e62",
+    "tests/fixture.ts": "7e8d4cb732ff542fbe88472c743d781c45c396ddb63994c0bd34b809ddd68b45",
+    "tests/integration.test.ts": "ff90b2a33a37ccb521ecd36eb2288f6504d736d130b78afa87623217d63a1cf8",
+    "tests/safety.test.ts": "13e2dc6eb45c2f7d8e9ffb5e4ae14d651d7e5b1e2a48b9de4abf431ba4b288bc",
+    "tsconfig.json": "f64f71bb30f1c0e27a795301e12d9ebb3f10d0b08f6ee026108781f0590bb69f"
+  },
+  "capabilitySha256": "8620d07511400f7848d97879e46d2da1c9fa6c3e964f299d81f2bc4e0aa12aaf",
+  "runs": [
+    {
+      "directory": "evidence/discovery/1b7d412c-23f9-40f2-9972-37c597e9ba1a",
+      "runId": "1b7d412c-23f9-40f2-9972-37c597e9ba1a",
+      "status": "success",
+      "outcome": "READY_FOR_REVIEW"
+    },
+    {
+      "directory": "evidence/replay-error/15507f9e-14c2-48fd-99b8-65beb3c38262",
+      "runId": "15507f9e-14c2-48fd-99b8-65beb3c38262",
+      "status": "business_outcome",
+      "outcome": "MEMBER_NOT_FOUND"
+    },
+    {
+      "directory": "evidence/replay-error/42f14b86-0841-47dd-80e2-2bc193124784",
+      "runId": "42f14b86-0841-47dd-80e2-2bc193124784",
+      "status": "business_outcome",
+      "outcome": "PERMISSION_DENIED"
+    },
+    {
+      "directory": "evidence/replay-recovery/0b2d6179-1f58-4e38-a656-50b7e8d6694d",
+      "runId": "0b2d6179-1f58-4e38-a656-50b7e8d6694d",
+      "status": "success",
+      "outcome": "READY_FOR_REVIEW"
+    },
+    {
+      "directory": "evidence/replay-recovery/59340c82-f1b4-41fa-8941-7bf1fe5c96d4",
+      "runId": "59340c82-f1b4-41fa-8941-7bf1fe5c96d4",
+      "status": "success",
+      "outcome": "READY_FOR_REVIEW"
+    },
+    {
+      "directory": "evidence/replay-success/60da15d6-71d9-4b65-a82d-281cf42f574c",
+      "runId": "60da15d6-71d9-4b65-a82d-281cf42f574c",
+      "status": "success",
+      "outcome": "READY_FOR_REVIEW"
+    },
+    {
+      "directory": "evidence/handoff/4c8820c3-a4dc-49b6-b30d-cfdaf4e2ab99",
+      "runId": "4c8820c3-a4dc-49b6-b30d-cfdaf4e2ab99",
+      "status": "success",
+      "outcome": "READY_FOR_REVIEW"
+    }
+  ],
+  "verification": {
+    "node": "v24.3.0",
+    "typecheck": "passed",
+    "tests": {
+      "passed": 25,
+      "failed": 0
+    }
+  },
+  "humanHandoff": {
+    "status": "verified",
+    "runId": "4c8820c3-a4dc-49b6-b30d-cfdaf4e2ab99",
+    "manualClick": "operator performed; trusted browser click recorded",
+    "terminalResume": "operator entered resume directly in terminal; confirmed by operator and saved resume events",
+    "session": "same Playwright page/context retained by handoff implementation"
+  },
+  "cleanCheckout": "pending"
+}
