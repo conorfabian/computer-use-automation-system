@@ -4,7 +4,7 @@ The system turns an observed UI workflow into a reusable capability. A single No
 
 Replay consumes the saved JSON and typed arguments. It has no provider import or model recovery path. Discovery and replay share the browser adapter, condition evaluation, policy, and evidence writer. A plain local banking UI provides member search, details, a savings form, and review. Tables and weak label associations make structural targeting useful without manufacturing test IDs. All data is synthetic and page-local.
 
-This separation is more useful than services or a generalized agent framework: each important decision is visible in a small module. The contract is intentionally predeclared. Discovery learns the successful UI path and targets; reviewed business-outcome and recovery definitions are not falsely attributed to one successful discovery run.
+The contract is intentionally predeclared. The model discovers which visible controls to use, action order, and when the goal appears complete; the adapter captures metadata from the selected controls. Reviewed code defines input/output types, allowed application states, verified success, known business outcomes, bounded recovery, and safety policy. The model may discover navigation but cannot redefine trusted business semantics or safety from one successful run. This keeps each decision visible in a small module without a generalized agent framework.
 
 # 2. Artifact schema
 

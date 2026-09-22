@@ -76,6 +76,11 @@ test('ambiguous targets fail; coordinates capture structural metadata; stale obs
     const input = observation.controls.find(c => c.control.tag === 'input')!;
     const target = await surface.captureTarget(observation.id, { x: input.bounds.x + 5, y: input.bounds.y + 5 }, { memberId: '12345', nickname: 'Vacation' });
     assert.equal(target.strategies[0]?.by, 'tableRow');
+    const missing = { by: 'label' as const, text: { literal: 'Absent label' } };
+    const fallback = await surface.resolve({ ...target, strategies: [missing, ...target.strategies] }, {});
+    assert.equal(await fallback.getAttribute('type'), 'text');
+    // Even coordinates over a real input cannot rescue missing replay strategies.
+    await assert.rejects(surface.resolve({ ...target, strategies: [missing] }, {}), /TARGET_NOT_FOUND/);
     await surface.page.locator('main').evaluate(el => el.insertAdjacentHTML('beforeend', '<button>Search</button>'));
     await assert.rejects(surface.resolve({ strategies: [{ by: 'role', role: 'button', name: { literal: 'Search' } }] }, {}), /AMBIGUOUS_TARGET/);
     await assert.rejects(surface.captureTarget(observation.id, { ref: input.ref }, {}), /STALE_OBSERVATION/);

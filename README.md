@@ -32,15 +32,15 @@ npm run discover -- \
   --memberId 12345 --nickname Vacation
 ```
 
-The goal expresses intent; explicit typed parameters provide the reusable invocation contract. Discovery learns the controls and ordered actions, not the predeclared success/error definitions. A verified run writes `evidence/capability.json`.
+The goal expresses intent; explicit typed parameters provide the reusable invocation contract. The model chooses visible controls, action order, and when the goal appears complete; the adapter captures reusable metadata from those controls. Reviewed code defines input/output types, allowed application states, verified success, known business outcomes, bounded recovery, and safety. The model discovers navigation without redefining trusted business semantics. A verified run writes `evidence/capability.json`.
 
 Replay with different inputs:
 
 ```sh
-npm run replay -- --memberId 67890 --nickname Emergency
+env OPENAI_API_KEY= OPENAI_MODEL= npm run replay -- --memberId 67890 --nickname Emergency
 ```
 
-Replay does not import the OpenAI adapter and needs no key or model access. Browser requests are restricted to the configured local application. The default is headed Chromium; use `--headless` for automated checks. CLI output and persisted results redact member IDs and nicknames; the TypeScript `replay()` result returns typed values in memory.
+Replay does not import the OpenAI adapter and needs no key or model access. `src/cli.ts` dynamically imports the provider only for `discover`; replay and its recovery path use deterministic code. Empty environment variables override any discovery credentials in `.env`. Browser requests are restricted to the configured local application. The default is headed Chromium; use `--headless` for automated checks. CLI output and persisted results redact member IDs and nicknames; the TypeScript `replay()` result returns typed values in memory.
 
 Exercise explicit business outcomes:
 
